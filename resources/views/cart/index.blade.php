@@ -72,7 +72,7 @@
 						<h3>Totals du panier</h3>
 						<p class="d-flex">
 							<span>Sous total</span>
-							<span>{{Cart::subtotal()}}</span>
+							<span>{{getPrice(Cart::subtotal())}}</span>
 						</p>
 						<p class="d-flex">
 							<span>Taxe TVA (16%)</span>
