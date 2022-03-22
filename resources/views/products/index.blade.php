@@ -7,7 +7,11 @@
     <title>index</title>
 </head>
 <body>
-    <p>Ecommerce</p>
+    <p>Ecommerce</p> <label for="">{{Cart::count()}}</label>
+    @if(session('success'))
+        <h4>{{session('success')}}</h4>
+    @endif
+
     @foreach($products as $product)
         <div>
             <h4>{{$product->title}}</h4>

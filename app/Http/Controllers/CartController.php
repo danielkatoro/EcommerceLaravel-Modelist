@@ -38,7 +38,7 @@ class CartController extends Controller
         // dd($request->id,$request->title,$request->price);
         Cart::add($request->id, $request->title, 1, $request->price)->associate('App\Models\Product');
 
-        return redirect()->route('produtcs.index')->with('success','Le produit a bien ete ajoute');
+        return redirect()->route('products.index')->with('success','Le produit a bien ete ajoute');
     }
 
     /**
