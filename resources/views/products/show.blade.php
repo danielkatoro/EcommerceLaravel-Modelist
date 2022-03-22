@@ -15,7 +15,11 @@
             <strong>{{$product->getFormatPrice()}}</strong>
             <a href="{{route('products.show', $product->slug)}}">Voir l'article</a>            
             <img src="{{$product->image}}" alt="product">
-            <form action="" method="post">
+            <form action="{{route('cart.store')}}" method="post">
+                @csrf
+                <input type="hidden" name="id" value="{{$product->id}}">
+                <input type="hidden" name="title" value="{{$product->title}}">
+                <input type="hidden" name="price" value="{{$product->price}}">
                 <button type="submit">Ajouter au panier</button>
             </form>
         </div>
