@@ -13,4 +13,10 @@ class ProductController extends Controller
         // dd($products);
         return view('products.index', compact('products'));
     }
+
+    public function show($slug){
+        $product = Product::where('slug', $slug)->first();
+
+        return view('products.show', compact('product'));
+    }
 }

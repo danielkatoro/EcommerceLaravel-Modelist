@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    <title>product</title>
 </head>
 <body>
-    <p>Ecommerce</p>
-    @foreach($products as $product)
+    <p>Product</p>
         <div>
             <h4>{{$product->title}}</h4>
             <label>{{$product->subtitle}}</label>

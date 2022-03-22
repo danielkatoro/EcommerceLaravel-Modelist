@@ -18,7 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Products routes
 Route::get('/boutique',[ProductController::class,'index']);
+Route::name('products.show')->get('/boutique/{slug}',[ProductController::class,'show']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
