@@ -14,7 +14,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return view('cart.index');
     }
 
     /**
@@ -35,8 +35,15 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->id,$request->title,$request->price);
-        Cart::add($request->id, $request->title, 1, $request->price)->associate('App\Models\Product');
+        $duplicata = Cart::search(function ($cartItem, $rowId) use($request) {
+            return $cartItem->id === $request->product_id;
+        });
+
+        if($duplicata->isNotEmpty()){
+            return redirect()->route('products.index')->with('success','Le produit a deja ete ajoute');
+        }
+        $product = Product::find($request->product_id);
+        Cart::add($product->id, $product->title, 1, $product->price)->associate('App\Models\Product');
 
         return redirect()->route('products.index')->with('success','Le produit a bien ete ajoute');
     }

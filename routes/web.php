@@ -24,7 +24,7 @@ Route::name('products.index')->get('/boutique',[ProductController::class,'index'
 Route::name('products.show')->get('/boutique/{slug}',[ProductController::class,'show']);
 
 //Cart routes
-Route::name('cart.index')->get('/boutique/panier',[CartController::class,'index']);
+Route::name('cart.index')->get('/panier',[CartController::class,'index']);
 Route::name('cart.store')->post('boutique/panier/ajouter',[CartController::class,'store']);
 
 Route::group(['prefix' => 'admin'], function () {

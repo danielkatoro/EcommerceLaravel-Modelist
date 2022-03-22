@@ -55,9 +55,7 @@
                 <!-- <p><a href="cart.html" class="btn btn-primary py-3 px-5">Add to Cart</a> -->
                 <form action="{{route('cart.store')}}" method="post">
                     @csrf
-                    <input type="hidden" name="id" value="{{$product->id}}">
-                    <input type="hidden" name="title" value="{{$product->title}}">
-                    <input type="hidden" name="price" value="{{$product->price}}">
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
                     <button class="btn btn-primary py-3 px-5" type="submit"><a>Ajouter au panier</a></button>
                 </form>
                 </p>
