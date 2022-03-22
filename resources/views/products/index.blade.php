@@ -24,7 +24,7 @@
                         <span class="status">30%</span>
                     </a>
                     <div class="text py-3 px-3">
-                        <h3><a href="#">{{$product->title}}</a></h3>
+                        <h3><a href="{{route('products.show',$product->slug)}}">{{$product->title}}</a></h3>
                         <div class="d-flex">
                             <div class="pricing">
                                 <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">{{$product->getFormatPrice()}}</span></p>
