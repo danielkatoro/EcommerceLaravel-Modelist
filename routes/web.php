@@ -32,6 +32,9 @@ Route::name('cart.destroy')->get('/destroy',function(){
 });
 Route::name('cart.delete')->delete('/panier/{rowId}',[CartController::class, 'delete']);
 
+//Checkout routes
+Route::name('checkout.index')->get('/checkout',[ChekoutController::class,'index']);
+
 
 
 Route::group(['prefix' => 'admin'], function () {
