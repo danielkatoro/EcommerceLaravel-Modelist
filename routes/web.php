@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,12 @@ Route::name('products.show')->get('/boutique/{slug}',[ProductController::class,'
 //Cart routes
 Route::name('cart.index')->get('/panier',[CartController::class,'index']);
 Route::name('cart.store')->post('boutique/panier/ajouter',[CartController::class,'store']);
+Route::name('cart.destroy')->get('/destroy',function(){
+    Cart::destroy();
+});
+Route::name('cart.delete')->delete('/panier/{rowId}',[CartController::class, 'delete']);
+
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -28,18 +28,27 @@
 								</tr>
 							</thead>
 							<tbody>
+                                @if(Cart::count() > 0)
+                                @foreach(Cart::content() as $product)
 								<tr class="text-center">
-									<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
+									<!-- <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a> -->
+                                    <td  class="product-remove">
+                                    <form action="{{route('cart.delete',$product->rowId)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="col-2" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ion-ios-close">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+                                    </form>
+                                    </td>
 									<td class="image-prod">
 										<div class="img"
 											style="background-image:url(images/xproduct-3.jpg.pagespeed.ic.6IQFkBrzlj.jpg)">
 										</div>
 									</td>
 									<td class="product-name">
-										<h3>Young Woman Wearing Dress</h3>
-										<p>Far far away, behind the word mountains, far from the countries</p>
+										<h3>{{$product->model->title}}</h3>
+										<p>{{$product->model->subtitle}}</p>
 									</td>
-									<td class="price">$4.90</td>
+									<td class="price">{{$product->model->getFormatPrice()}}</td>
 									<td class="quantity">
 										<div class="input-group mb-3">
 											<input type="text" name="quantity"
@@ -48,26 +57,10 @@
 									</td>
 									<td class="total">$4.90</td>
 								</tr>
-								<tr class="text-center">
-									<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-									<td class="image-prod">
-										<div class="img"
-											style="background-image:url(images/xproduct-4.jpg.pagespeed.ic.y08R7oo18U.jpg)">
-										</div>
-									</td>
-									<td class="product-name">
-										<h3>Young Woman Wearing Dress</h3>
-										<p>Far far away, behind the word mountains, far from the countries</p>
-									</td>
-									<td class="price">$15.70</td>
-									<td class="quantity">
-										<div class="input-group mb-3">
-											<input type="text" name="quantity"
-												class="quantity form-control input-number" value="1" min="1" max="100">
-										</div>
-									</td>
-									<td class="total">$15.70</td>
-								</tr>
+								@endforeach
+                                @else
+                                    <p>Votre panier est vider <a href="{{route('products.index')}}">Boutique</a></p>
+                                @endif
 							</tbody>
 						</table>
 					</div>

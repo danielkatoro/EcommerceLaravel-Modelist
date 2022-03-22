@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
@@ -90,6 +91,12 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::destroy();
+    }
+
+    public function delete($rowId){
+        Cart::remove($rowId);
+
+        return back()->with('success', 'Le produit a ete supprime');
     }
 }
