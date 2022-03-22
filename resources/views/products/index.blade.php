@@ -1,26 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
-</head>
-<body>
-    <p>Ecommerce</p> <label for="">{{Cart::count()}}</label>
-    @if(session('success'))
-        <h4>{{session('success')}}</h4>
-    @endif
+@extends('layouts/master')
 
-    @foreach($products as $product)
-        <div>
-            <h4>{{$product->title}}</h4>
-            <label>{{$product->subtitle}}</label>
-            <label for="">{{$product->created_at->format('d/m/Y')}}</label>
-            <strong>{{$product->getFormatPrice()}}</strong>
-            <a href="{{route('products.show', $product->slug)}}">Voir l'article</a>            
-            <img src="{{$product->image}}" alt="product">
+@section('content')
+<div class="hero-wrap hero-bread" style="background-image:url(images/xbg_6.jpg.pagespeed.ic.FoMmN96gAy.jpg)">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Collection</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Product</span></p>
+            </div>
         </div>
-    @endforeach
-</body>
-</html>
+    </div>
+</div>
+@if(session('success'))
+<div class="alert alert-success">{{session('success')}}</div>
+@endif
+<section class="ftco-section bg-light">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach($products as $product)
+            <div class="col-sm col-md-6 col-lg-3 ftco-animate">
+                <div class="product">
+                    <a href="#" class="img-prod"><img class="img-fluid" src="images/xproduct-1.jpg.pagespeed.ic.Ydimmp9gdt.jpg" alt="Colorlib Template">
+                        <span class="status">30%</span>
+                    </a>
+                    <div class="text py-3 px-3">
+                        <h3><a href="#">{{$product->title}}</a></h3>
+                        <div class="d-flex">
+                            <div class="pricing">
+                                <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">{{$product->getFormatPrice()}}</span></p>
+                            </div>
+                            <div class="rating">
+                                <p class="text-right">
+                                    <span class="ion-ios-star-outline"></span>
+                                    <span class="ion-ios-star-outline"></span>
+                                    <span class="ion-ios-star-outline"></span>
+                                    <span class="ion-ios-star-outline"></span>
+                                    <span class="ion-ios-star-outline"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <p class="bottom-area d-flex">
+                            <a href="{{route('products.show',$product->slug)}}" class="add-to-cart"><span>Voir le produit <i class="ion-ios-add ml-1"></i></span></a>
+                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section-parallax">
+    <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+            <div class="row d-flex justify-content-center py-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h1 class="big">Subscribe</h1>
+                    <h2>Subcribe to our Newsletter</h2>
+                    <div class="row d-flex justify-content-center mt-5">
+                        <div class="col-md-8">
+                            <form action="#" class="subscribe-form">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control" placeholder="Enter email address">
+                                    <input type="submit" value="Subscribe" class="submit px-3">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection
