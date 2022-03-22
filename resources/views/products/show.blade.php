@@ -10,12 +10,11 @@
     <p>Product</p>
         <div>
             <h4>{{$product->title}}</h4>
-            <label>{{$product->subtitle}}</label>
+            <label>{{$product->description}}</label><br>
             <label for="">{{$product->created_at->format('d/m/Y')}}</label>
             <strong>{{$product->getFormatPrice()}}</strong>
             <a href="{{route('products.show', $product->slug)}}">Voir l'article</a>            
             <img src="{{$product->image}}" alt="product">
         </div>
-    @endforeach
 </body>
 </html>
