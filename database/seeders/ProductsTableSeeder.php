@@ -19,12 +19,12 @@ class ProductsTableSeeder extends Seeder
         $faker = Factory::create();
         for ($i=0; $i < 30; $i++) { 
             Product::create([
-                'title' => $faker->sentence(15),
+                'title' => $faker->sentence(2),
                 'slug' => $faker->slug,
-                'subtitle' => $faker->sentence(10),
+                'subtitle' => $faker->sentence(3),
                 'description' => $faker->text,
                 'price' => $faker->numberBetween(15, 300) * 100,
-                'image' => $faker->sentence(4),
+                'image' => 'https://via.placeholder.com/200x250',
             ]);
         }
     }
