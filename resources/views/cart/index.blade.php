@@ -69,17 +69,17 @@
 			<div class="row justify-content-end">
 				<div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
 					<div class="cart-total mb-3">
-						<h3>Cart Totals</h3>
+						<h3>Totals du panier</h3>
 						<p class="d-flex">
-							<span>Subtotal</span>
-							<span>$20.60</span>
+							<span>Sous total</span>
+							<span>{{Cart::subtotal()}}</span>
 						</p>
 						<p class="d-flex">
-							<span>Delivery</span>
+							<span>Taxe TVA (16%)</span>
 							<span>$0.00</span>
 						</p>
 						<p class="d-flex">
-							<span>Discount</span>
+							<span>Reductions</span>
 							<span>$3.00</span>
 						</p>
 						<hr>
