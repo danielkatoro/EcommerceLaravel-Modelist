@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProductController;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Controllers\ChekoutController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::name('cart.destroy')->get('/destroy',function(){
 Route::name('cart.delete')->delete('/panier/{rowId}',[CartController::class, 'delete']);
 
 //Checkout routes
-Route::name('checkout.index')->get('/checkout',[ChekoutController::class,'index']);
+Route::name('checkout.index')->get('/paiement',[ChekoutController::class,'index']);
 
 
 

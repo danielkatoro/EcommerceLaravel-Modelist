@@ -88,7 +88,7 @@
 							<span>{{getPrice(Cart::total())}}</span>
 						</p>
 					</div>
-					<p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Passer à la caisset</a></p>
+					<p class="text-center"><a href="{{route('checkout.index')}}" class="btn btn-primary py-3 px-4">Passer à la caisset</a></p>
 				</div>
 			</div>
 		</div>

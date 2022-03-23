@@ -35,7 +35,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown04">
               <a class="dropdown-item" href="{{route('products.index')}}">Shop</a>
               <a class="dropdown-item" href="{{route('cart.index')}}">Panier</a>
-              <a class="dropdown-item" href="checkout.html">Checkout</a>
+              <a class="dropdown-item" href="{{route('checkout.index')}}">Paiemnt</a>
             </div>
           </li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
