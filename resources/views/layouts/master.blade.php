@@ -42,7 +42,7 @@
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
           <li class="nav-item cta cta-colored"><a href="{{route('cart.index')}}" class="nav-link"><span
-                class="icon-shopping_cart"></span>[{{Cart::count()}}]</a></li>
+                class="icon-shopping_cart"></span>[{{Cart::count()}}] </a></li>
         </ul>
       </div>
     </div>
