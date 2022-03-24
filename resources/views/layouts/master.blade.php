@@ -41,7 +41,7 @@
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item cta cta-colored"><a href="{{route('cart.index')}}" class="nav-link"><span
+          <li class="nav-item cta cta-colored"><a href="{{route('cart.index')}}" class="nav-link text-bold"><span
                 class="icon-shopping_cart"></span>[{{Cart::count()}}]&nbsp;&nbsp;{{getPrice(Cart::total())}} </a></li>
         </ul>
       </div>
