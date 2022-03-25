@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Stripe\Stripe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Stripe\Checkout\Session;
 
 class ChekoutController extends Controller
@@ -33,8 +34,9 @@ class ChekoutController extends Controller
             'success_url' => 'https://example.com/success',
             'cancel_url' => 'https://example.com/cancel',
           ]);
-          dd($session);
-        return view('checkout.index');
+          $clientSecret = Arr::get($session, 'payment_intent');
+        //   dd($clientSecret);
+        return view('checkout.index',compact('clientSecret'));
     }
 
     /**
