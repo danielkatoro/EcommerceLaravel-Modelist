@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Stripe\Stripe;
 use Illuminate\Http\Request;
 use Stripe\Checkout\Session;
@@ -24,7 +25,7 @@ class ChekoutController extends Controller
                 'product_data' => [
                   'name' => 'T-shirt',
                 ],
-                'unit_amount' => 2000,
+                'unit_amount' => round(Cart::total()),
               ],
               'quantity' => 1,
             ]],
@@ -32,6 +33,7 @@ class ChekoutController extends Controller
             'success_url' => 'https://example.com/success',
             'cancel_url' => 'https://example.com/cancel',
           ]);
+          dd($session);
         return view('checkout.index');
     }
 
