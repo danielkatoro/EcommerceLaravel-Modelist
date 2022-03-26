@@ -35,7 +35,7 @@ class ChekoutController extends Controller
             'cancel_url' => 'https://example.com/cancel',
           ]);
           $clientSecret = Arr::get($session, 'payment_intent');
-        //   dd($clientSecret);
+          dd($clientSecret);
         return view('checkout.index',compact('clientSecret'));
     }
 
